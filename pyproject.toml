@@ -1,0 +1,14 @@
+[project]
+name = "commitizen-demo"
+version = "0.1.0"
+description = "Quick demo project to show how handy it could be to use commitizen for strucutred commit messages"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "commitizen>=4.11.3",
+]
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.11.3",
+]
