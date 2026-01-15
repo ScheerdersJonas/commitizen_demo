@@ -12,3 +12,77 @@ dependencies = [
 dev = [
     "commitizen>=4.11.3",
 ]
+
+[tool.commitizen]
+name = "cz_customize"
+version = "0.1.0"
+
+[tool.commitizen.customize]
+message_template = "{{change_type}}{% if scope %}({{scope}}){% endif %}: {{subject}}{% if body %}\n\n{{body}}{% endif %}{% if footer %}\n\n{{footer}}{% endif %}"
+example = "feat: add user authentication"
+schema = "<type>(<scope>): <subject>\n<body>\n<footer>"
+schema_pattern = "^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(\\(\\w+\\))?!?:\\s\\S.*"
+
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "change_type"
+message = "Select the type of change you are committing"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "fix"
+name = "fix: Bug fix"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "feat"
+name = "feat: New feature"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "docs"
+name = "docs: Documentation changes"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "style"
+name = "style: Code formatting (no logic change)"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "refactor"
+name = "refactor: Code restructuring"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "perf"
+name = "perf: Performance improvement"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "test"
+name = "test: Add or update tests"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "build"
+name = "build: Build system or dependencies"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "ci"
+name = "ci: CI/CD configuration"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "chore"
+name = "chore: Maintenance tasks"
+
+[[tool.commitizen.customize.questions.choices]]
+value = "revert"
+name = "revert: Revert previous commit"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "subject"
+message = "Write a short, imperative description of the change"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "body"
+message = "Provide additional contextual information (optional)"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "footer"
+message = "Footer (e.g., issue references)"
