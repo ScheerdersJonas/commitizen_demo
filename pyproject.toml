@@ -11,7 +11,9 @@ dependencies = [
 [dependency-groups]
 dev = [
     "commitizen>=4.11.3",
+    "pregex>=2.3.3",
 ]
+
 
 [tool.commitizen]
 name = "cz_customize"
